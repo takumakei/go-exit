@@ -8,7 +8,7 @@ Purpose
 2. specifying an status code.
 
 
-1. eliminating a boiler plate.
+1 eliminating a boiler plate.
 ----------------------------------------------------------------------
 
 The package exit eliminates a boiler plate for main() like below.
@@ -32,7 +32,7 @@ func main() {
 }
 ```
 
-2. specifying an status code.
+2 specifying an status code.
 ----------------------------------------------------------------------
 
 ### the status code WITHOUT the error message
