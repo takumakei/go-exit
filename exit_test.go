@@ -15,7 +15,7 @@ func TestStatus(t *testing.T) {
 	exit.HandleExit = func(code int) { result = code }
 	out := new(strings.Builder)
 	code := 42
-	exit.Exit(out, exit.Status(code))
+	exit.Fexit(out, exit.Status(code))
 	if result != code {
 		t.Errorf("result %d != %d", result, code)
 	}
@@ -30,7 +30,7 @@ func TestError(t *testing.T) {
 	out := new(strings.Builder)
 	code := 42
 	err := errors.New("Deep Thought said 42")
-	exit.Exit(out, exit.Error(code, err))
+	exit.Fexit(out, exit.Error(code, err))
 	if result != code {
 		t.Errorf("result %d != %d", result, code)
 	}

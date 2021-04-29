@@ -28,7 +28,7 @@ func main() {
 
 ``` go
 func main() {
-  exit.Exit(os.Stderr, run())
+  exit.Exit(run())
 }
 ```
 
@@ -40,7 +40,7 @@ func main() {
 Using `exit.Status`, `exit.Exit` does not write any error messages, calls just os.Exit(42).
 
 ``` go
-exit.Exit(os.Stderr, exit.Status(42))
+exit.Exit(exit.Status(42))
 ```
 
 ### the status code WITH the error message
@@ -48,5 +48,5 @@ exit.Exit(os.Stderr, exit.Status(42))
 Using `exit.Error`, `exit.Exit` writes the error message of err, then calls os.Exit(42).
 
 ``` go
-exit.Exit(os.Stderr, exit.Error(42, errors.New("Deep Thought said")))
+exit.Exit(exit.Error(42, errors.New("Deep Thought said")))
 ```

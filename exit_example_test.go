@@ -14,7 +14,7 @@ func Example() {
 		fmt.Printf("status %d", code)
 	}
 
-	exit.Exit(os.Stdout, run())
+	exit.Fexit(os.Stdout, run())
 	// Output:
 	// error: Deep Thought said 42
 	// status 42

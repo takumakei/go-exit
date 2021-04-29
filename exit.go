@@ -36,7 +36,12 @@ var HandleExit = os.Exit
 // Format is the format used by Exit to write an error.
 var Format = "error: %v\n"
 
-// Exit writes the error message of err to w, then calls os.Exit.
+// Exit calls Fexit(os.Stderr, err).
+func Exit(err error) {
+	Fexit(os.Stderr, err)
+}
+
+// Fexit writes the error message of err to w, then calls os.Fexit.
 //
 // The error message is not written in case of that
 // `err is nil` nor `err is types.Status itself`.
@@ -44,7 +49,7 @@ var Format = "error: %v\n"
 // If you do not want to output any error message under any circumstances,
 // consider the following.
 // `os.Exit(StatusCode(err))`
-func Exit(w io.Writer, err error) {
+func Fexit(w io.Writer, err error) {
 	if err == nil {
 		// no error, no error message.
 		HandleExit(0)
