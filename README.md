@@ -28,7 +28,7 @@ func main() {
 
 ``` go
 func main() {
-  exit.Exit(run())
+  exit.ExitOnError(run())
 }
 ```
 

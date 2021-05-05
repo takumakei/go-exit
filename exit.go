@@ -36,9 +36,19 @@ var HandleExit = os.Exit
 // Format is the format used by Exit to write an error.
 var Format = "error: %v\n"
 
-// Exit calls Fexit(os.Stderr, err).
+// Stderr is the writer that Exit writes a message to.
+var Stderr io.Writer = os.Stderr
+
+// Exit calls Fexit(Stderr, err).
 func Exit(err error) {
-	Fexit(os.Stderr, err)
+	Fexit(Stderr, err)
+}
+
+// ExitOnError calls Exit(err) if err != nil, otherwise do nothing.
+func ExitOnError(err error) {
+	if err != nil {
+		Exit(err)
+	}
 }
 
 // Fexit writes the error message of err to w, then calls os.Fexit.
@@ -66,6 +76,13 @@ func Fexit(w io.Writer, err error) {
 		}
 	}
 	HandleExit(code)
+}
+
+// FexitOnError calls Fexit(w, err) if err != nil, otherwise do nothing.
+func FexitOnError(w io.Writer, err error) {
+	if err != nil {
+		Fexit(w, err)
+	}
 }
 
 // LookupStatusCoder returns the StatusCode() of types.StatusCoder with ok = true
