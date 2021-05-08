@@ -29,6 +29,17 @@ func Error(code int, err error) error {
 	return types.NewError(code, err)
 }
 
+// ErrorString calls Error(code, errors.New(msg)) if msg is not an empty
+// string, otherwise it calls Error(code, nil)
+//
+// Note that Error(0, nil) returns nil whereas Status(code) returns always non-nil error.
+func ErrorString(code int, msg string) error {
+	if len(msg) == 0 {
+		return Error(code, nil)
+	}
+	return Error(code, errors.New(msg))
+}
+
 // HandleExit is os.Exit.
 // This should not be changed not in case of testing.
 var HandleExit = os.Exit
