@@ -1,6 +1,8 @@
 Package exit implements errors represents the status code.
 ======================================================================
 
+[![GoDoc](https://pkg.go.dev/badge/github.com/takumakei/go-exit)](https://godoc.org/github.com/takumakei/go-exit)
+
 Purpose
 ----------------------------------------------------------------------
 
